@@ -10,6 +10,7 @@ public abstract class Visualizer : MonoBehaviour
     protected GameObject[] sliders;
     // Start is called before the first frame update
     public abstract void generate_sliders();
+    public abstract void mutate_sliders();
     void Start()
     {
         sliders = new GameObject[numberOfSliders];
@@ -20,5 +21,9 @@ public abstract class Visualizer : MonoBehaviour
     void Update()
     {
         
+    }
+    private void FixedUpdate()
+    {
+        mutate_sliders();
     }
 }

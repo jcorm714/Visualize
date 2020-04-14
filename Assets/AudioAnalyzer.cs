@@ -6,17 +6,16 @@ using UnityEngine;
 public class AudioAnalyzer : MonoBehaviour
 {
     // Start is called before the first frame update
-    private float[] spectrum;
+    public static float[] spectrum = new float[2048];
     public int channel;
     public bool debug;
-    private Renderer renderer;
+
     void Start()
     {
         //has to be a power of two for the buffer
         //larger sizes will be more accurate, but
         //causes way more time to work on them
-        spectrum = new float[512];
-        renderer = this.GetComponent<Renderer>();
+ 
     }
 
     // Update is called once per frame
@@ -27,8 +26,7 @@ public class AudioAnalyzer : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        AudioListener.GetOutputData(spectrum, channel);
-
+        spectrum = AudioData.buffer;
         if (debug)
         {
             for (int i = 1; i < spectrum.Length - 1; i++)
@@ -40,19 +38,21 @@ public class AudioAnalyzer : MonoBehaviour
             }
         }
 
-        int count = 0;
-        float avg = 0;
-        for (; count < spectrum.Length; count++)
-        {
-            avg += Mathf.Log(Mathf.Abs(spectrum[count]), 15);
-        }
-        float scale = Mathf.Abs(avg);
-        this.transform.localScale = new Vector3(avg, avg, -2);
-
-        float red = (255 % scale) * 2;
-        float green = (128 % scale) * 2;
-        float blue = (152 % scale) * 2;
-        this.renderer.material.SetColor("_color", new Color(red, green, blue));
+        //int count = 0;
+        //float avg = 0;
+        
+        //for (; count < spectrum.Length; count++)
+        //{
+            
+        //    avg += Mathf.Log(Mathf.Abs(spectrum[count]), 3);
+        //}
+        //avg = avg / count;
+        
+        //float bias = Mathf.Abs(avg) * 8;
+        //print(bias);
+        //this.transform.localScale = new Vector3(bias, bias, -2);
     }
+
+
 
 }

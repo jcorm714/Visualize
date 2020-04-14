@@ -11,7 +11,7 @@ public class ExtendBehavior : MonoBehaviour
     private Rigidbody2D body;
     private bool fading;
     private bool triggered;
-    //used to check if the slider is animating properly
+    //used to check if the slider is animating 
     public void test()
     {
         Vector3 currScale = this.transform.localScale;
@@ -58,9 +58,40 @@ public class ExtendBehavior : MonoBehaviour
 
     }
 
+    public void updateScaleFromAudio(float bias)
+    {
+        Vector3 currScale = this.transform.localScale;
+        Vector3 newScale = new Vector3();
+        newScale.x = currScale.x + bias;
+        newScale.z = currScale.z;
+        newScale.y = currScale.y;
+        this.transform.localScale = newScale;
+    }
+
+    public void reset()
+    {
+        Vector3 currScale = this.transform.localScale;
+        Vector3 newScale = new Vector3();
+        if(this.transform.localScale.x == 0.1)
+        {
+
+        }
+        if(currScale.x - speed <= 0)
+        {
+            newScale.x = speed * 0.1f;
+        } else
+        {
+            newScale.x = currScale.x - speed;
+        }
+        
+        newScale.z = currScale.z;
+        newScale.y = currScale.y;
+        this.transform.localScale = newScale;
+
+    }
     // Update is called once per frame
     void Update()
     {
-        test();
+        reset();
     }
 }

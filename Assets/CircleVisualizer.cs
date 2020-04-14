@@ -29,4 +29,9 @@ public class CircleVisualizer : Visualizer
 
         }
     }
+
+    public override void mutate_sliders()
+    {
+        throw new System.NotImplementedException();
+    }
 }

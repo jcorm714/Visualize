@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CANVAS
   - SLIDER
+  - MUSIC
   layers:
   - Default
   - TransparentFX
