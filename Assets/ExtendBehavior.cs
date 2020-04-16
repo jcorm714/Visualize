@@ -5,8 +5,10 @@ using UnityEngine;
 public class ExtendBehavior : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int length;
+    public float MaxScale;
     public float speed;
+    public float pitchBias;
+    public float baseScale;
     private Vector3 scale;
     private Rigidbody2D body;
     private bool fading;
@@ -15,7 +17,7 @@ public class ExtendBehavior : MonoBehaviour
     public void test()
     {
         Vector3 currScale = this.transform.localScale;
-        if(currScale.x >= this.length)
+        if(currScale.x >= this.MaxScale)
         {
             
             fading = true;
@@ -62,7 +64,21 @@ public class ExtendBehavior : MonoBehaviour
     {
         Vector3 currScale = this.transform.localScale;
         Vector3 newScale = new Vector3();
-        newScale.x = currScale.x + bias;
+
+        float calc = bias * pitchBias;
+        if (calc >= this.MaxScale)
+        {
+            newScale.x = MaxScale;
+        } else if (calc <= this.baseScale)
+        {
+          
+            newScale.x = baseScale;
+        }
+        else
+        {
+            newScale.x = calc;
+        }
+        
         newScale.z = currScale.z;
         newScale.y = currScale.y;
         this.transform.localScale = newScale;
@@ -72,16 +88,13 @@ public class ExtendBehavior : MonoBehaviour
     {
         Vector3 currScale = this.transform.localScale;
         Vector3 newScale = new Vector3();
-        if(this.transform.localScale.x == 0.1)
+        if (currScale.x - speed * Time.deltaTime <= baseScale)
         {
-
+            newScale.x = baseScale;
         }
-        if(currScale.x - speed <= 0)
+        else
         {
-            newScale.x = speed * 0.1f;
-        } else
-        {
-            newScale.x = currScale.x - speed;
+            newScale.x = currScale.x - speed * Time.deltaTime;
         }
         
         newScale.z = currScale.z;

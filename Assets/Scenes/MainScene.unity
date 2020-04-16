@@ -149,11 +149,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45683ab033470814c90aa5f523f89a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfSliders: 2048
   slider: {fileID: 7560881445375207288, guid: f814c46c514a2324cb7b545dd9cbe026, type: 3}
-  spacing: 0.2
-  sizeBias: 100
-  sliderSpeed: 20
+  spacing: 0.25
+  sliderBaseScale: 1
+  sliderSpeed: 2
+  sliderMaxScale: 1000
 --- !u!4 &80652139
 Transform:
   m_ObjectHideFlags: 0
@@ -162,7 +162,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80652137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -200, y: 0, z: -2}
+  m_LocalPosition: {x: -300, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -179,7 +179,6 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -195,19 +194,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
---- !u!114 &519420030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac16458bc5b3b064e8a3c3839d4088de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  channels: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -229,13 +215,13 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 20
-    height: 20
+    width: 1005.416
+    height: 1005.416
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 187.17268
+  orthographic size: 200
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -338,8 +324,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061423999}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: -8, z: 1}
-  m_LocalScale: {x: 5769.405, y: 3970.6082, z: 3.675}
+  m_LocalPosition: {x: 800, y: 100, z: 1}
+  m_LocalScale: {x: 40000, y: 30000, z: 14.7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -385,7 +371,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ce384344d3937a24d9f2a5dac5c12567, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7f46839392ebb1349a7fb802565407e2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -519,8 +505,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 500, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1145949401
 MonoBehaviour:
@@ -555,7 +541,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0
-  m_Text: VISUALIZE
+  m_Text: Try This - Pegboard Nerds
 --- !u!222 &1145949402
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -582,7 +568,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1599706747
 MonoBehaviour:
   m_ObjectHideFlags: 0
