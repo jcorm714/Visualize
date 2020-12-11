@@ -34,4 +34,9 @@ public class CircleVisualizer : Visualizer
     {
         throw new System.NotImplementedException();
     }
+
+    public override void update_sliders()
+    {
+        throw new System.NotImplementedException();
+    }
 }
